@@ -127,7 +127,7 @@ You cannot restore the complete service application or service application proxy
     
 3. In Central Administration, in the **System Settings** section, click **Manage services on server**.
     
-4. On the Services on Server page, find **User Profile Service**. If the service is started, click **Stop** to stop the service. 
+4. On the Services on Server page, find **User Profile Service**. If the service is started, click **Stop** to stop the service. In case you did not create a User Profile Service yet, create the User Profile Service Application. Make sure that the User Profile Service is running on the server where you will import the Microsoft Identity Integration Server (MIIS) encryption key and that the User Profile Synchronization Service has been in the status **Starting** on that same server.
     
 5. Before you restore the User Profile Service service application databases, you must import the Microsoft Identity Integration Server (MIIS) encryption key that you exported before backing up the databases. You only have to do this one time for the restore process. To do this, on the server to which you are restoring the service application, type the following at the command prompt:
     
@@ -135,7 +135,7 @@ You cannot restore the complete service application or service application proxy
   miiskmu.exe /i exported.key {<GUID>}
   ```
 
-    Where  _\<GIUD\>_ is the identifier of the key. 
+    Where  _\<GIUD\>_ is the identifier of the user profile service (Use Get-SPServiceApplication to get the GUID of the User Profile Service Application). 
     
 6. Open SQL Server Management Studio and connect to the database server.
     
